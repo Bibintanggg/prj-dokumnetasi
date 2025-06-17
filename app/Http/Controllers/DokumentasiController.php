@@ -12,6 +12,8 @@ class DokumentasiController extends Controller
     public function index()
     {
         //
+        
+        return view('user.dokumentasi.index');
     }
 
     /**
