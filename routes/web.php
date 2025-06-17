@@ -23,4 +23,5 @@ Route::get('/admin/dashboard', [HomeController::class, 'index'])->middleware('au
 
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);
 Route::get('dokumentasi.create', [DokumentasiController::class, 'create']);
+Route::post('/dokumentasi/store', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
 require __DIR__.'/auth.php';

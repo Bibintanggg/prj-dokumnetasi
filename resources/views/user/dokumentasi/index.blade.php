@@ -12,6 +12,15 @@
 
 </head>
 <body class="bg-[#EFF2FB]">
+    <script>
+        function togglemodal(modalID) {
+                const modal = document.getElementById(modalID);
+                if (modal) {
+                    modal.classList.toggle("hidden");
+                }
+            }
+
+        </script>
     
     <div class="flex">
         <aside class="h-screen bg-white w-[15rem]">
@@ -89,10 +98,36 @@
                                 </table>
                             </div>
 
-                            <button id="floatingModal" onclick="togglemodal">
+                            <button onclick="togglemodal('modalPemasukan')" class="px-4 py-2 bg-blue-500 text-white rounded">
                                 Tambah Dokumentasi
                             </button>
-                        </div>
+                            
+                            <x-modal-form id="modalPemasukan" title="Tambah Dokumentasi" action="{{ route('dokumentasi.store') }}">
+                                <div class="mb-4">
+                                    <label for="judul" class="block mb-1">Judul</label>
+                                    <input type="text" name="judul" id="judul" class="border w-full p-2 rounded">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="kegiatan" class="block mb-1">Kegiatan</label>
+                                    <input type="text" name="kegiatan" id="kegiatan" class="border w-full p-2 rounded">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="kendala" class="block mb-1">Kendala</label>
+                                    <input type="text" name="kendala" id="kendala" class="border w-full p-2 rounded">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="deskripsi_kendala" class="block mb-1">Deskripsi Kendala</label>
+                                    <textarea name="deskripsi_kendala" id="deskripsi_kendala" class="border w-full p-2 rounded"></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="tanggal" class="block mb-1">Tanggal</label>
+                                    <input type="date" name="tanggal" id="tanggal" class="border w-full p-2 rounded">
+                                </div>
+                            </x-modal-form>
+
+
+                            </div>
+                            
                     </div>
                     
                 </div>
