@@ -20,7 +20,7 @@
                 }
             }
 
-        </script>
+    </script>
     
     <div class="flex">
         <aside class="h-screen bg-white w-[15rem]">
@@ -85,11 +85,11 @@
                                     <tbody class="bg-white -translate-y-2">
                                         @forelse ($dokumentasi as $dokumentasis)
                                             <tr>
-                                                <tr>{{$dokumentasi->judul ?? '-'}}</tr>
-                                                <tr>{{$dokumentasi->kegiatan ?? '-'}}</tr>
-                                                <tr>{{$dokumentasi->kendala ?? '-'}}</tr>
-                                                <tr>{{$dokumentasi->deskripsi_kendala ?? '-'}}</tr>
-                                                <tr>{{$dokumentasi->tanggal->format('d M y')}}</tr>
+                                                <tr>{{$dokumentasis->judul ?? '-'}}</tr>
+                                                <tr>{{$dokumentasis->kegiatan ?? '-'}}</tr>
+                                                <tr>{{$dokumentasis->kendala ?? '-'}}</tr>
+                                                <tr>{{$dokumentasis->deskripsi_kendala ?? '-'}}</tr>
+                                                <tr>{{$dokumentasis->tanggal->format('d M y')}}</tr>
                                             </tr>
                                         @empty
                                         <tr><td colspan="4" class="text-center py-4">Belum ada data</td></tr>
@@ -102,10 +102,18 @@
                                 Tambah Dokumentasi
                             </button>
                             
-                            <x-modal-form id="modalPemasukan" title="Tambah Dokumentasi" action="{{ route('dokumentasi.store') }}">
+                            <x-modal-form 
+                            id="modalPemasukan" 
+                            title="Tambah Dokumentasi" 
+                            action="{{ route('dokumentasi.store') }}"
+                            >
                                 <div class="mb-4">
                                     <label for="judul" class="block mb-1">Judul</label>
-                                    <input type="text" name="judul" id="judul" class="border w-full p-2 rounded">
+                                    <input 
+                                    type="text" 
+                                    title="judul" 
+                                    id="judul" 
+                                    class="border w-full p-2 rounded">
                                 </div>
                                 <div class="mb-4">
                                     <label for="kegiatan" class="block mb-1">Kegiatan</label>
