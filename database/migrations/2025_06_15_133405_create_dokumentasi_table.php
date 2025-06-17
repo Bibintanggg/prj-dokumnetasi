@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('dokumentasi', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
             $table->string('judul')->nullable();
             $table->string('kegiatan');
             $table->enum('kendala',['tidak ada', 'ada'])->default('tidak ada');
             $table->string('deskripsi_kendala');
+            $table->timestamp('tanggal')->useCurrent();
             $table->timestamps();
         });
     }
