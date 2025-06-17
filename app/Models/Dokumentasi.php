@@ -9,6 +9,7 @@ class Dokumentasi extends Model
 {
     //
     use HasFactory;
+    protected $table = 'dokumentasi';
     protected $fillable = [
         'user_id',
         'tanggal',

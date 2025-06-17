@@ -60,12 +60,32 @@
                     <div class='mt-10'>
                         <div class="flex flex-col font-jakarta">
                             <h1 class="text-xl font-semibold">Dokumentasi</h1>
-                            <div>
-                                <table>
-                                    <tr class="bg-white w-52 h-10 flex gap-96">
-                                        <th>ok</th>
-                                        <th>ok</th>
-                                    </tr>
+                            <div class="mt-3 rounded-xl">
+                                <table class="justify-center">
+                                    <thead>
+                                        <tr class="bg-white w-[65rem] h-14 flex gap-40 items-center justify-center rounded-xl">
+                                            <div class="justify-center">
+                                                <th>Judul</th>
+                                                <th>Kegiatan</th>
+                                                <th>Kendala</th>
+                                                <th>Deskripsi Kendala</th>
+                                                <th>Tanggal</th>
+                                            </div>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white -translate-y-2">
+                                        @forelse ($dokumentasi as $dokumentasis)
+                                            <tr>
+                                                <tr>{{$dokumentasi->judul ?? '-'}}</tr>
+                                                <tr>{{$dokumentasi->kegiatan ?? '-'}}</tr>
+                                                <tr>{{$dokumentasi->kendala ?? '-'}}</tr>
+                                                <tr>{{$dokumentasi->deskripsi_kendala ?? '-'}}</tr>
+                                                <tr>{{$dokumentasi->tanggal->format('d M y')}}</tr>
+                                            </tr>
+                                        @empty
+                                        <tr><td colspan="4" class="text-center py-4">Belum ada data</td></tr>
+                                        @endforelse
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

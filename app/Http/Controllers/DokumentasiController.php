@@ -14,8 +14,8 @@ class DokumentasiController extends Controller
     public function index()
     {
         //
-        $dokumentasis = Dokumentasi::where('user_id', Auth::user())->get();
-        return view('user.dokumentasi.index', compact('dokumentasis'));
+        $dokumentasi = Dokumentasi::where('user_id', Auth::user())->get();
+        return view('user.dokumentasi.index', compact('dokumentasi'));
     }
 
     /**
@@ -64,8 +64,8 @@ class DokumentasiController extends Controller
     public function edit(string $id)
     {
         //
-        $dokumentasis = Dokumentasi::where('id', $id)->where('user_id', auth()->id()->firstOrFail());
-        return view('.user.dokumentasi.edit', compact('dokumentasis'));
+        $dokumentasi = Dokumentasi::where('id', $id)->where('user_id', auth()->id()->firstOrFail());
+        return view('.user.dokumentasi.edit', compact('dokumentasi'));
     }
 
     /**
@@ -80,8 +80,8 @@ class DokumentasiController extends Controller
             'kendala'=>'required|in:ada,tidak ada',
         ]);
 
-        $dokumentasis = Dokumentasi::findOrFail($id);
-        $dokumentasis -> update(attributes: $request->all());
+        $dokumentasi = Dokumentasi::findOrFail($id);
+        $dokumentasi -> update(attributes: $request->all());
         return redirect()->back()->with('succes', 'Data berhasil diperbarui!');
     }
 
@@ -91,8 +91,8 @@ class DokumentasiController extends Controller
     public function destroy(string $id)
     {
         //
-        $dokumentasis = Dokumentasi::findOrFail($id);
-        $dokumentasis->delete();
+        $dokumentasi = Dokumentasi::findOrFail($id);
+        $dokumentasi->delete();
         return redirect()->back()->with('succes', 'Data berhasil dihapus!');
     }
 }
