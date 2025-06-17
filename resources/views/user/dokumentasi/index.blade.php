@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/datetime.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/togglemodal.js'])
     <title>Dokumentasi</title>
 
     <style>
@@ -60,7 +60,7 @@
                     <div class='mt-10'>
                         <div class="flex flex-col font-jakarta">
                             <h1 class="text-xl font-semibold">Dokumentasi</h1>
-                            <div class="mt-3 rounded-xl">
+                            <div class="mt-3">
                                 <table class="justify-center">
                                     <thead>
                                         <tr class="bg-white w-[65rem] h-14 flex gap-40 items-center justify-center rounded-xl">
@@ -88,6 +88,10 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <button id="floatingModal" onclick="togglemodal">
+                                Tambah Dokumentasi
+                            </button>
                         </div>
                     </div>
                     

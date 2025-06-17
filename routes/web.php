@@ -22,4 +22,5 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/dashboard', [HomeController::class, 'index'])->middleware('auth', 'admin');
 
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);
+Route::get('dokumentasi.create', [DokumentasiController::class, 'create']);
 require __DIR__.'/auth.php';
