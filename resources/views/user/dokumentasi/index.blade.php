@@ -20,6 +20,17 @@
                 }
             }
 
+            function tampilForm() {
+            const pilihan = document.getElementById('pilihan').value;
+            const deskripsiKendala = document.getElementById('deskripsiKendala');
+
+            if(pilihan === 'ada') {
+                deskripsiKendala.classList.remove('hidden');
+            } else {
+                deskripsiKendala.classList.add('hidden');
+            }
+        }
+
     </script>
     
     <div class="flex">
@@ -107,15 +118,52 @@
                             title="Tambah Dokumentasi"
                             action="{{ route('dokumentasi.store') }}">
                         
-                            <label for="" class="text-lg font-jakarta">Judul Dokumentasi</label>
+                            <label for="" class="text-lg font-jakarta ">Judul Dokumentasi</label>
                             <input type="text"
                             name="judul"
-                            class="mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Masukkan judul dokumentasi"
                             required>
+
+                            <div class="mt-4">
+
+                            <label for="" class="text-lg font-jakarta ">Nama Kegiatan</label>
+                            <input type="text"
+                            name="judul"
+                            class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            placeholder="Ngapain Aja Hari Ini?"
+                            required>
+                            </div>
+
+                            <div class="mt-4" id="formKendala" ">
+                                <label for="" class="text-lg font-jakarta flex flex-col">Apa ada Kendala ?</label>
+                                <select name="" id="pilihan" onchange="tampilForm()" class="rounded-xl">
+                                    <option value="tidak ada">Tidak Ada</option>
+                                    <option value="ada">Ada</option>
+                                </select>
+                            </div>
+
+                            <div class="mt-4 hidden" id="deskripsiKendala">
+                                <label for="" class="text-lg font-jakarta">Deskripsi Kendala</label>
+                                <input type="text"
+                                name="judul"
+                                class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                placeholder="Kalo Ada Kendala, Deskripsikan Disini"
+                                required>
+                            </div>
+
+                            <div class="mt-4">
+
+                            <label for="" class="text-lg font-jakarta ">Tanggal</label>
+                            <input type="date"
+                            name="judul"
+                            class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            placeholder="Masukkan judul dokumentasi"
+                            value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                            </div>
+
+                            
                             </x-modal-form>
-
-
                             </div>
                             
                     </div>
