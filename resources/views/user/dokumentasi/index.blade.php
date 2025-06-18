@@ -72,7 +72,7 @@
                             <div class="mt-3">
                                 <table class="justify-center">
                                     <thead>
-                                        <tr class="bg-white w-[65rem] h-14 flex gap-40 items-center justify-center rounded-xl">
+                                        <tr class="bg-white w-[100rem] mb-2 h-14 flex gap-60 items-center justify-center rounded-xl">
                                             <div class="justify-center">
                                                 <th>Judul</th>
                                                 <th>Kegiatan</th>
@@ -82,7 +82,7 @@
                                             </div>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white -translate-y-2">
+                                    <tbody class="bg-white ">
                                         @forelse ($dokumentasi as $dokumentasis)
                                             <tr>
                                                 <tr>{{$dokumentasis->judul ?? '-'}}</tr>
@@ -98,39 +98,21 @@
                                 </table>
                             </div>
 
-                            <button onclick="togglemodal('modalPemasukan')" class="px-4 py-2 bg-blue-500 text-white rounded">
+                            <button onclick="togglemodal('tambahDokum')" class="px-4 py-2 bg-blue-500 text-white rounded mt-2">
                                 Tambah Dokumentasi
                             </button>
-                            
-                            <x-modal-form 
-                            id="modalPemasukan" 
-                            title="Tambah Dokumentasi" 
-                            action="{{ route('dokumentasi.store') }}"
-                            >
-                                <div class="mb-4">
-                                    <label for="judul" class="block mb-1">Judul</label>
-                                    <input 
-                                    type="text" 
-                                    title="judul" 
-                                    id="judul" 
-                                    class="border w-full p-2 rounded">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="kegiatan" class="block mb-1">Kegiatan</label>
-                                    <input type="text" name="kegiatan" id="kegiatan" class="border w-full p-2 rounded">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="kendala" class="block mb-1">Kendala</label>
-                                    <input type="text" name="kendala" id="kendala" class="border w-full p-2 rounded">
-                                </div>
-                                <div class="mb-4">
-                                    <label for="deskripsi_kendala" class="block mb-1">Deskripsi Kendala</label>
-                                    <textarea name="deskripsi_kendala" id="deskripsi_kendala" class="border w-full p-2 rounded"></textarea>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="tanggal" class="block mb-1">Tanggal</label>
-                                    <input type="date" name="tanggal" id="tanggal" class="border w-full p-2 rounded">
-                                </div>
+
+                            <x-modal-form
+                            id="tambahDokum"
+                            title="Tambah Dokumentasi"
+                            action="{{ route('dokumentasi.store') }}">
+                        
+                            <label for="" class="text-lg font-jakarta">Judul Dokumentasi</label>
+                            <input type="text"
+                            name="judul"
+                            class="mt-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            placeholder="Masukkan judul dokumentasi"
+                            required>
                             </x-modal-form>
 
 
