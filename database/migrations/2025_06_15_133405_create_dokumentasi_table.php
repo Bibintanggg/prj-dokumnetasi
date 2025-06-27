@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('judul')->nullable();
             $table->string('kegiatan');
             $table->enum('kendala',['tidak ada', 'ada'])->default('tidak ada');
-            $table->string('deskripsi_kendala');
+            $table->string('deskripsi_kendala')->nullable();
             $table->timestamp('tanggal')->useCurrent();
             $table->timestamps();
         });

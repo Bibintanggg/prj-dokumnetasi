@@ -9,6 +9,8 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');</style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-uB3F8W9fWZTzD9DqS1ZVG7mrMJj9TtD6iQqEyaZRLq+4kbbDxQ1V23KAG+Z3XpOgZDfIqkTVvXg+QxM1wVGf1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 </head>
 <body class="bg-[#EFF2FB]">
@@ -91,7 +93,20 @@
                                 <div class="w-[20rem] h-[17rem] mt-4 rounded-2xl p-4">
                                     <p class="text-xl font-semibold">Notifikasi</p>
                                     <div class="">
-                                        <!-- Isi notifikasi -->
+                                        <div>
+                                            <div class="space-y-4">
+                                                @forelse ($notifDokum as $notif)
+                                                    <div class="flex items-center bg-white p-4 rounded shadow gap-4"> {{-- Satu item notifikasi --}}
+                                                        <i class="fa-solid fa-user text-blue-500 text-xl"></i> {{-- Ikon di kiri --}}
+                                                        <p class="text-sm flex-1 max-w-[20rem]">
+                                                            {{ Auth::user()->name }} pada tanggal {{ \Carbon\Carbon::now()->format('Y-m-d') }} menambahkan dokumentasi baru
+                                                        </p>
+                                                    </div>
+                                                @empty
+                                                    <p class="text-gray-500 text-sm">Belum ada notifikasi.</p>
+                                                @endforelse
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

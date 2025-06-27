@@ -19,6 +19,10 @@ class Dokumentasi extends Model
         'deskripsi_kendala',
     ];
 
+    protected $casts = [
+        'tanggal' => 'date'
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);

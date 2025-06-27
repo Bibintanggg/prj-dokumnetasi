@@ -81,32 +81,33 @@
                         <div class="flex flex-col font-jakarta">
                             <h1 class="text-xl font-semibold">Dokumentasi</h1>
                             <div class="mt-3">
-                                <table class="justify-center">
-                                    <thead>
-                                        <tr class="bg-white w-[100rem] mb-2 h-14 flex gap-60 items-center justify-center rounded-xl">
-                                            <div class="justify-center">
-                                                <th>Judul</th>
-                                                <th>Kegiatan</th>
-                                                <th>Kendala</th>
-                                                <th>Deskripsi Kendala</th>
-                                                <th>Tanggal</th>
-                                            </div>
+                                <table class="table-auto w-full text-left border-collapse">
+                                    <thead class="bg-white">
+                                        <tr>
+                                            <th class="px-4 py-2">Judul</th>
+                                            <th class="px-4 py-2">Kegiatan</th>
+                                            <th class="px-4 py-2">Kendala</th>
+                                            <th class="px-4 py-2">Deskripsi Kendala</th>
+                                            <th class="px-4 py-2">Tanggal</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white ">
+                                    <tbody class="bg-white">
                                         @forelse ($dokumentasi as $dokumentasis)
-                                            <tr>
-                                                <tr>{{$dokumentasis->judul ?? '-'}}</tr>
-                                                <tr>{{$dokumentasis->kegiatan ?? '-'}}</tr>
-                                                <tr>{{$dokumentasis->kendala ?? '-'}}</tr>
-                                                <tr>{{$dokumentasis->deskripsi_kendala ?? '-'}}</tr>
-                                                <tr>{{$dokumentasis->tanggal->format('d M y')}}</tr>
+                                            <tr class="border-t">
+                                                <td class="px-4 py-2">{{ $dokumentasis->judul ?? '-' }}</td>
+                                                <td class="px-4 py-2">{{ $dokumentasis->kegiatan ?? '-' }}</td>
+                                                <td class="px-4 py-2">{{ $dokumentasis->kendala ?? '-' }}</td>
+                                                <td class="px-4 py-2">{{ $dokumentasis->deskripsi_kendala ?? '-' }}</td>
+                                                <td class="px-4 py-2">{{ \Carbon\Carbon::parse($dokumentasis->tanggal)->format('d M Y') }}</td>
                                             </tr>
                                         @empty
-                                        <tr><td colspan="4" class="text-center py-4">Belum ada data</td></tr>
+                                            <tr>
+                                                <td colspan="5" class="text-center py-4">Belum ada data</td>
+                                            </tr>
                                         @endforelse
                                     </tbody>
                                 </table>
+                                
                             </div>
 
                             <button onclick="togglemodal('tambahDokum')" class="px-4 py-2 bg-blue-500 text-white rounded mt-2">
@@ -129,7 +130,7 @@
 
                             <label for="" class="text-lg font-jakarta ">Nama Kegiatan</label>
                             <input type="kegiatan"
-                            name="judul"
+                            name="kegiatan"
                             class="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Ngapain Aja Hari Ini?"
                             required>

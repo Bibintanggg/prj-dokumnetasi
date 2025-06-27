@@ -11,10 +11,19 @@ class DokumentasiController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function dashboardUser()
+    {
+        $userId = Auth::id();
+
+        $notifDokum = Dokumentasi::where('user_id', $userId)->latest()->take(3)->get();
+        return view ('user.dashboard', compact('notifDokum'));
+    }
+
     public function index()
     {
         //
-        $dokumentasi = Dokumentasi::where('user_id', Auth::user())->get();
+        $dokumentasi = Dokumentasi::where('user_id', Auth::user()->id)->get();
         return view('user.dokumentasi.index', compact('dokumentasi'));
     }
 
@@ -38,12 +47,16 @@ class DokumentasiController extends Controller
             'judul'=>'required|string|max:60',
             'kegiatan'=>'required|string|max:60',
             'kendala'=>'required|in:ada,tidak ada',
+            'deskripsi_kendala' => 'nullable|string',
+            'tanggal' => 'required|date',
         ]);
 
         Dokumentasi::create([
             'judul'=>$request->judul,
             'kegiatan'=>$request->kegiatan,
             'kendala'=>$request->kendala,
+            'deskripsi_kendala'=>$request->deskripsi_kendala,
+            'tanggal'=>$request->tanggal,
             'user_id' => auth()->id(),
         ]);
 

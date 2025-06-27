@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/admin/dashboard', [HomeController::class, 'index'])->middleware('auth', 'admin');
 
+Route::get('dashboard', [DokumentasiController::class, 'dashboardUser'])->name('dashboard');
 Route::get('dokumentasi', [DokumentasiController::class, 'index']);
 Route::get('dokumentasi.create', [DokumentasiController::class, 'create']);
 Route::post('/dokumentasi/store', [DokumentasiController::class, 'store'])->name('dokumentasi.store');
