@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-uB3F8W9fWZTzD9DqS1ZVG7mrMJj9TtD6iQqEyaZRLq+4kbbDxQ1V23KAG+Z3XpOgZDfIqkTVvXg+QxM1wVGf1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/datetime.js'])
     <title>Dashboard</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');</style>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-uB3F8W9fWZTzD9DqS1ZVG7mrMJj9TtD6iQqEyaZRLq+4kbbDxQ1V23KAG+Z3XpOgZDfIqkTVvXg+QxM1wVGf1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
@@ -94,11 +94,11 @@
                                     <p class="text-xl font-semibold">Notifikasi</p>
                                     <div class="">
                                         <div>
-                                            <div class="space-y-4">
+                                            <div class="space-y-4 mt-4">
                                                 @forelse ($notifDokum as $notif)
-                                                    <div class="flex items-center bg-white p-4 rounded shadow gap-4"> {{-- Satu item notifikasi --}}
-                                                        <i class="fa-solid fa-user text-blue-500 text-xl"></i> {{-- Ikon di kiri --}}
-                                                        <p class="text-sm flex-1 max-w-[20rem]">
+                                                    <div class="flex items-center bg-white p-4 rounded-xl shadow gap-4"> 
+                                                        <i class="fa-solid fa-user text-blue-500 text-xl"></i> 
+                                                        <p class="text-xs flex-1 max-w-[20rem]">
                                                             {{ Auth::user()->name }} pada tanggal {{ \Carbon\Carbon::now()->format('Y-m-d') }} menambahkan dokumentasi baru
                                                         </p>
                                                     </div>
