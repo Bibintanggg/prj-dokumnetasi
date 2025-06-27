@@ -28,4 +28,9 @@ class Dokumentasi extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function Tahap()
+    {
+        return $this->belongsTo(Tahap::class, 'tahap_id');
+    }
+
 }
