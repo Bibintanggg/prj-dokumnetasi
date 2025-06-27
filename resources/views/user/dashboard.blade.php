@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-uB3F8W9fWZTzD9DqS1ZVG7mrMJj9TtD6iQqEyaZRLq+4kbbDxQ1V23KAG+Z3XpOgZDfIqkTVvXg+QxM1wVGf1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/datetime.js'])
     <title>Dashboard</title>
 
@@ -90,15 +90,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-[20rem] h-[17rem] mt-4 rounded-2xl p-4">
+                                <div class="w-[25rem] h-[17rem] mt-4 rounded-2xl p-4">
                                     <p class="text-xl font-semibold">Notifikasi</p>
                                     <div class="">
                                         <div>
                                             <div class="space-y-4 mt-4">
                                                 @forelse ($notifDokum as $notif)
                                                     <div class="flex items-center bg-white p-4 rounded-xl shadow gap-4"> 
-                                                        <i class="fa-solid fa-user text-blue-500 text-xl"></i> 
-                                                        <p class="text-xs flex-1 max-w-[20rem]">
+                                                        <div class="w-10 h-10 bg-[#EFF2FB] flex items-center justify-center rounded-xl">
+                                                            <i class="fa-solid fa-user text-black text-xl "></i> 
+                                                        </div>
+                                                        <p class="text-sm flex-1 max-w-[20rem]">
                                                             {{ Auth::user()->name }} pada tanggal {{ \Carbon\Carbon::now()->format('Y-m-d') }} menambahkan dokumentasi baru
                                                         </p>
                                                     </div>
